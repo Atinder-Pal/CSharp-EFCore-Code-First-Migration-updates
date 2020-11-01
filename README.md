@@ -29,4 +29,9 @@ For this practice we will be expanding upon the Entity Framework - Code First Mi
     * The material input should be trimmed.
   * When the user enters a valid material and you add the new shelf, ensure the foreign key for “ShelfMaterial” is populated correctly.
 
+**Challenges:**
+* Research  Data Seeding - EF and seed the table with 10 shelves consisting of at least 3 different materials when you push it to MySQL.
+* If the shelf material the user enters doesn’t exist, ask if they would like to add it. Ensure that it is stored in “Title Case” (upper case first letter of each word).
+
+
 **Link to Trello Board:** https://trello.com/b/DEMyibAz/entity-framework-code-first-migration-updates
