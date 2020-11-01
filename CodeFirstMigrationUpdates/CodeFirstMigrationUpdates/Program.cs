@@ -1,5 +1,7 @@
 ﻿using CodeFirstMigrationUpdates.Models;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Linq;
 
 namespace CodeFirstMigrationUpdates
@@ -50,7 +52,17 @@ namespace CodeFirstMigrationUpdates
         }
         public static void addShelfMaterial(string shelfMaterialName, ShelfContext context)
         {
-            var newShelfMaterial = new ShelfMaterial(shelfMaterialName);
+            //Citation: https://stackoverflow.com/questions/1206019/converting-string-to-title-case
+            //The below code borrowed fromabove source dint work.
+            //TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+
+            //Citation
+            //https://www.c-sharpcorner.com/blogs/convert-a-string-to-title-case-in-c-sharp1
+            //Borrowed code from above source on how to ocnvert string to TitleCase
+            CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
+            TextInfo textInfo = cultureInfo.TextInfo;
+            var newShelfMaterial = new ShelfMaterial(textInfo.ToTitleCase(shelfMaterialName.ToLower()));
+            //End Citation
             context.ShelfMaterials.Add(newShelfMaterial);
             context.SaveChanges();
         }
