@@ -14,7 +14,11 @@ namespace CodeFirstMigrationUpdates.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
+        [Required]
         [Column( TypeName ="varchar(25)" )]
-        public string MMaterialName { get; set; }
+        public string MaterialName { get; set; }
+
+        [InverseProperty(nameof(Models.Shelf.ShelfMaterial))]
+        public virtual ICollection<Shelf> Shelves { get; set; }
     }
 }

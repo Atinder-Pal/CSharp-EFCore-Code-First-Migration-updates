@@ -18,6 +18,12 @@ namespace CodeFirstMigrationUpdates.Models
         [Column(TypeName = "varchar(50)")]
         public string Name { get; set; }
 
+        [Column(TypeName ="int(10)")]
+        public int ShelfMaterialID { get; set; }
+
+        [ForeignKey(nameof(ShelfMaterialID))]
+        [InverseProperty(nameof(Models.ShelfMaterial.Shelves))]
+        public virtual ShelfMaterial ShelfMaterial { get; set; }
         public Shelf()
         {
             Name = "Default_Shelf";
