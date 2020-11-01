@@ -81,7 +81,71 @@ namespace CodeFirstMigrationUpdates.Models
                     .WithMany(parent => parent.Shelves)
                     .HasForeignKey(thisEntity => thisEntity.ShelfMaterialID)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName(keyName);                
+                    .HasConstraintName(keyName);
+
+                entity.HasData(
+                    new Shelf()
+                    {
+                        ID = -1,
+                        Name = "Book",
+                        ShelfMaterialID = -3
+                    },
+                    new Shelf()
+                    {
+                        ID = -2,
+                        Name = "Storage",
+                        ShelfMaterialID = -1
+                    },
+                   new Shelf()
+                   {
+                       ID = -3,
+                       Name = "Kitchen",
+                       ShelfMaterialID = -2
+                   },
+                    new Shelf()
+                    {
+                        ID = -4,
+                        Name = "Wardrobe",
+                        ShelfMaterialID = -4
+                    },
+                    new Shelf()
+                    {
+                        ID = -5,
+                        Name = "Closet",
+                        ShelfMaterialID = -3
+                    },
+                    new Shelf()
+                    {
+                        ID = -6,
+                        Name = "Study",
+                        ShelfMaterialID = -5
+                    },
+                    new Shelf()
+                    {
+                        ID = -7,
+                        Name = "MusicRoom",
+                        ShelfMaterialID = -4
+                    },
+                    new Shelf()
+                    {
+                        ID = -8,
+                        Name = "Workout",
+                        ShelfMaterialID = -1
+                    },
+                    new Shelf()
+                    {
+                        ID = -9,
+                        Name = "Outdoor",
+                        ShelfMaterialID = -2
+                    },
+                    new Shelf()
+                    {
+                        ID = -10,
+                        Name = "Washroom",
+                        ShelfMaterialID = -5
+                    }
+                );
+
             });
         }
     }
