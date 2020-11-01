@@ -27,11 +27,13 @@ namespace CodeFirstMigrationUpdates.Models
         public Shelf()
         {
             Name = "Default_Shelf";
+            ShelfMaterialID = -1;
         }
 
-        public Shelf(string shelfName)
+        public Shelf(string shelfName, int shelfMaterialID)
         {
             Name = shelfName;
+            ShelfMaterialID = shelfMaterialID;
         }
     }
 }
