@@ -20,5 +20,15 @@ namespace CodeFirstMigrationUpdates.Models
 
         [InverseProperty(nameof(Models.Shelf.ShelfMaterial))]
         public virtual ICollection<Shelf> Shelves { get; set; }
+
+        public ShelfMaterial()
+        {
+            MaterialName = "Default_Shelf";            
+        }
+
+        public ShelfMaterial(string shelfName)
+        {
+            MaterialName = shelfName;            
+        }
     }
 }
